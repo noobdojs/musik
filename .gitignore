@@ -1,6 +1,10 @@
+node_modules/
 node_modules/**/*
+.idea/
+.vscode/
 .expo/*
 npm-debug.*
+yarn-error.*
 *.jks
 *.p8
 *.p12
@@ -12,3 +16,4 @@ web-report/
 
 # macOS
 .DS_Store
+/nbproject/private/
