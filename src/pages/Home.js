@@ -1,19 +1,13 @@
 import React from 'react'
-import { 
-  ScrollView,SafeAreaView, View, Text, ImageBackground, FlatList
+import {
+  ScrollView,SafeAreaView, View, Text, ImageBackground
 } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
 import { homeStyles } from './styles'
 import OpcoesRapidas from '../components/OpcoesRapidas'
-import CardArtista from '../components/CardArtista'
-
-var data = [
-  {id: 1,artist: 'Blind Guardian'},
-  {id: 2, artist: 'Iron Mask'},
-  {id: 3, artist: 'Marduk'},
-  {id: 4, artist: 'Black Sabbath'}
-]
+import CardsArtista from '../components/CardsArtista'
+import CardsAlbum from '../components/CardsAlbum'
 
 export default function Home(){
   return (
@@ -35,18 +29,10 @@ export default function Home(){
           <OpcoesRapidas iconName="swap" iconColor="green" option="Aleatório" />
         </View>
 
-        <View
-          style={homeStyles.artistCards}
-        >
-          <Text style={homeStyles.artistsTitle}>Artistas principais</Text>
-          <FlatList
-            style={{marginTop: 15}}
-            data={data}
-            keyExtractor={artist => String(artist.id)}
-            horizontal={true} 
-            renderItem={({item: artist}) => <CardArtista artista={artist.artist} />}  
-          />
-        </View>
+        <CardsArtista tipoLista="Principais" />
+        <CardsAlbum tipoLista="Melhores"/>
+        <CardsArtista tipoLista="Recentes" />
+        <CardsAlbum tipoLista="Recentes"/>
 
       </SafeAreaView>
     </ScrollView>

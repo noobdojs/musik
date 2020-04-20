@@ -1,12 +1,5 @@
 import { StyleSheet } from 'react-native'
 import Constants from 'expo-constants'
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },  
-})
 
 export const homeStyles = StyleSheet.create({
   container: {
@@ -15,7 +8,6 @@ export const homeStyles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10
   },
-
   cardContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -38,26 +30,14 @@ export const homeStyles = StyleSheet.create({
     height: 120,
     alignSelf: 'center'
   },
+
   quickOptions:{
     width: '100%',
-    height: 60,
+    height: 90,
     marginTop: 15,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  artistCards: {
-    flex: 1,
-    // paddingHorizontal: 24,
-    height: 220,
-    width: '100%'
-  },
-  artistsTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
-    marginBottom: 5
   }
 })
-
-export default styles
