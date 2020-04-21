@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import Constants from 'expo-constants'
 
-export const homeStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 5 + Constants.statusBarHeight,
@@ -41,3 +41,5 @@ export const homeStyles = StyleSheet.create({
     justifyContent: 'center',
   }
 })
+
+export default styles

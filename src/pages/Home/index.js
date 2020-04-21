@@ -4,25 +4,25 @@ import {
 } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
-import { homeStyles } from './styles'
-import OpcoesRapidas from '../components/OpcoesRapidas'
-import CardsArtista from '../components/CardsArtista'
-import CardsAlbum from '../components/CardsAlbum'
+import styles from './styles'
+import OpcoesRapidas from './OpcoesRapidas'
+import CardsArtista from './CardsArtista'
+import CardsAlbum from './CardsAlbum'
 
 export default function Home(){
   return (
     <ScrollView>
-      <SafeAreaView style={homeStyles.container}>
-        <ImageBackground source={require('../assets/bg_card.jpg')} style={homeStyles.bgCard}>
-          <View style={homeStyles.cardContainer}>
-            <View style={homeStyles.cardAvatar}>
+      <SafeAreaView style={styles.container}>
+        <ImageBackground source={require('../../assets/bg_card.jpg')} style={styles.bgCard}>
+          <View style={styles.cardContainer}>
+            <View style={styles.cardAvatar}>
               <AntDesign name="user" size={32} color="green" />
             </View>
-            <Text style={homeStyles.cardTitle}>Bem-vindo(a) user</Text>
+            <Text style={styles.cardTitle}>Bem-vindo(a) user</Text>
           </View>
         </ImageBackground>
 
-        <View style={homeStyles.quickOptions}>
+        <View style={styles.quickOptions}>
           <OpcoesRapidas iconName="clockcircleo" iconColor="blue" option="Histórico" />
           <OpcoesRapidas iconName="pluscircleo" iconColor="red" option="Mais recentes" />
           <OpcoesRapidas iconName="linechart" iconColor="purple" option="Mais tocadas" />
