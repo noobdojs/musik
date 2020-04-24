@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons'
 
 import Home from './src/pages/Home'
 import Albuns from './src/pages/Albuns'
@@ -14,24 +14,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={({route}) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ color, size }) => {
           let iconName
 
           if(route.name === 'Home'){
-            iconName = focused ? 'home' :
-            'home-outline'
+            iconName = 'home'
           }else if(route.name === 'Albuns'){
-            iconName = focused ? 'disc' :
-            'album'
+            iconName = 'disc'
           }else if(route.name === 'Musicas'){
-            iconName = focused ? 'music-circle' :
-            'music-circle-outline'
+            iconName = 'music' 
           }else if(route.name === 'Playlists'){
-            iconName = focused ? 'playlist-play' :
-            'playlist-check'
+            iconName = 'list'
           }
 
-          return <MaterialCommunityIcons name={iconName} size={size} color={color} />
+          return <Feather name={iconName} size={size} color={color} />
         }
       })}
       tabBarOptions={{

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, FlatList } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, FlatList, ScrollView, Dimensions } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 export default function CardsAlbum({ tipoLista }){
@@ -14,31 +14,28 @@ export default function CardsAlbum({ tipoLista }){
   return (
     <View style={styles.albumCards}>
       <Text style={styles.albunsTitle}>{tipoLista} albuns</Text>
-
-
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.list}
+        <ScrollView
           horizontal={true}
-          data={data}
-          keyExtractor={item => String(item.id)}
-          paginEnabled={true}
-          renderItem={({item}) => {
-            return (
-              <View style={styles.card}>
-                <ImageBackground source={{uri: "https://picsum.photos/150/80"}} style={styles.image}>
-                  <TouchableOpacity style={styles.playButton}>
-                    <FontAwesome5 name="play" size={20} color="#fff" />
-                  </TouchableOpacity>
-                </ImageBackground>
+          showsHorizontalScrollIndicator={false}
+          pagingEnabled={true}
+          alwaysBounceHorizontal={true}
+        >
 
-                <View style={styles.albumInfo}>
-                  <Text style={styles.albumArtist}>{item.artist}</Text>
-                  <Text style={styles.albumTitle}>{item.album}</Text>
-                </View>
+          {data.map(item => (
+            <View key={item.id} style={styles.card}>
+              <ImageBackground source={{uri: "https://picsum.photos/150/80"}} style={styles.image}>
+                <TouchableOpacity style={styles.playButton}>
+                  <FontAwesome5 name="play" size={20} color="#fff" />
+                </TouchableOpacity>
+              </ImageBackground>
+
+              <View style={styles.albumInfo}>
+                <Text style={styles.albumArtist}>{item.artist}</Text>
+                <Text style={styles.albumTitle}>{item.album}</Text>
               </View>
-            )
-          }}/>
+            </View>
+          ))}
+        </ScrollView>
       
     </View>
   )
@@ -54,17 +51,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 5
   },
-  list: {
-    display: 'flex',
-    flexDirection: 'row',
-    overflow: 'hidden',
-    width: '500%'
-  },
   card: {
-    width: 300,
-    // display: 'flex',
+    width: Dimensions.get('window').width - 12,
+    flex: 1,
+    display: 'flex',
     flexDirection: 'column',
-    marginHorizontal: 5,
+    marginHorizontal: 1,
     borderRadius: 10,
     paddingBottom: 5
   },

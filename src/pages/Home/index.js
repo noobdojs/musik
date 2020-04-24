@@ -23,10 +23,10 @@ export default function Home(){
         </ImageBackground>
 
         <View style={styles.quickOptions}>
-          <OpcoesRapidas iconName="clockcircleo" iconColor="blue" option="Histórico" />
-          <OpcoesRapidas iconName="pluscircleo" iconColor="red" option="Mais recentes" />
-          <OpcoesRapidas iconName="linechart" iconColor="purple" option="Mais tocadas" />
-          <OpcoesRapidas iconName="swap" iconColor="green" option="Aleatório" />
+          <OpcoesRapidas iconName="clock" iconColor="blue" option="Histórico" />
+          <OpcoesRapidas iconName="plus-circle" iconColor="red" option="Mais recentes" />
+          <OpcoesRapidas iconName="activity" iconColor="purple" option="Mais tocadas" />
+          <OpcoesRapidas iconName="shuffle" iconColor="green" option="Aleatório" />
         </View>
 
         <CardsArtista tipoLista="Principais" />

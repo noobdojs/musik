@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text, ScrollView, SafeAreaView, TouchableOpacity, TouchableNativeFeedback } from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
+import { View, Text, ScrollView, SafeAreaView, TouchableHighlight } from 'react-native'
+import { Feather } from '@expo/vector-icons'
 
 import styles from './styles'
 import Musica from './Musica'
@@ -11,19 +11,34 @@ export default function Musicas() {
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <View style={styles.buttonsWrapper}>
-          <TouchableOpacity style={styles.button}>
-            <AntDesign name="play" size={20} color="#fff" />
-            <Text style={styles.buttonText}>Reproduzir tudo</Text>
-          </TouchableOpacity>
+          <TouchableHighlight 
+            onPress={() => {}}
+            style={{borderRadius: 50}}
+            underlayColor="darkgray"
+          >
+            <View style={styles.button}>
+              <Feather name="play" size={20} color="#fff" />
+              <Text style={styles.buttonText}>Reproduzir tudo</Text>
+            </View>
+          </TouchableHighlight>
 
-          <TouchableOpacity activeOpacity={0.6} style={styles.button}>
-            <AntDesign name="swap" size={20} color="#fff" />
-            <Text style={styles.buttonText}>Aleatório</Text>
-          </TouchableOpacity>
+          <TouchableHighlight 
+            onPress={() => {}}
+            style={{borderRadius: 50}}
+            underlayColor="#fff"
+          >
+            <View style={styles.button}>
+              <Feather name="shuffle" size={20} color="#fff" />
+              <Text style={styles.buttonText}>Aleatório</Text>
+            </View>
+          </TouchableHighlight>
         </View>
-        <Musica />
-        <Musica />
-        <Musica />
+        <View style={{marginTop: 5, width: '100%'}}>
+
+          <Musica />
+          <Musica />
+          <Musica />
+        </View>
       </SafeAreaView>
     </ScrollView>
   )

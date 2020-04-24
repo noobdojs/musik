@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 5 + Constants.statusBarHeight,
     alignItems: 'center',
-    marginHorizontal: 10
+    marginHorizontal: 5
   },
   cardContainer: {
     flex: 1,
