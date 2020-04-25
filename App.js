@@ -7,6 +7,7 @@ import Home from './src/pages/Home'
 import Albuns from './src/pages/Albuns'
 import Musicas from './src/pages/Musicas'
 import Playlists from './src/pages/Playlists'
+import Artistas from './src/pages/Artistas'
 
 const Tab = createBottomTabNavigator()
 
@@ -23,6 +24,8 @@ export default function App() {
             iconName = 'disc'
           }else if(route.name === 'Musicas'){
             iconName = 'music' 
+          }else if(route.name === 'Artistas'){
+            iconName = 'user'
           }else if(route.name === 'Playlists'){
             iconName = 'list'
           }
@@ -37,6 +40,7 @@ export default function App() {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Musicas" component={Musicas} />
         <Tab.Screen name="Albuns" component={Albuns} />
+        <Tab.Screen name="Artistas" component={Artistas} />
         <Tab.Screen name="Playlists" component={Playlists} />
       </Tab.Navigator>
     </NavigationContainer>
