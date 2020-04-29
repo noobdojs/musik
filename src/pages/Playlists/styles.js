@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10
   },
+  mainTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 15
+  }
 })
 
 export default styles

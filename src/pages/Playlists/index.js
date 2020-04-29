@@ -1,12 +1,16 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 
 import styles from './styles'
+import Playlist from './Playlist'
 
 export default function Playlists(){
   return (
-    <View style={styles.container}>
-      <Text>Playlists</Text>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.mainTitle}>Suas Playlists</Text>
+        <Playlist title="Favoritos" icon="heart" />
+      </View>
+    </ScrollView>
   )
 }
