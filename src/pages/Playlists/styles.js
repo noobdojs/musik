@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import Constants from 'expo-constants'
 
 const styles = StyleSheet.create({
@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 5 + Constants.statusBarHeight,
     alignItems: 'center',
-    marginHorizontal: 10
+    marginHorizontal: 10,
+    // height: Dimensions.get('screen').height
   },
   mainTitle: {
     fontSize: 22,

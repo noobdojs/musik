@@ -1,20 +1,31 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
 import ListOptions from './ListOptions'
 
 export default function Playlist({title, icon}){
-  let isActive = false
-  let scaleValue = new Animated.Value(0)
+  const [isActive,setIsActive] = React.useState(false)
+  const scaleValue = new Animated.Value(0)
+  const opacityValue = new Animated.Value(0)
 
-  function toggleOptions(){
-    isActive = isActive ? false : true
+  React.useEffect(()=>{
     let scale = isActive ? 1 : 0
-    Animated.timing(scaleValue, {
-      toValue: scale,
-      duration: 300
-    }).start()
+    let opacity = isActive ? 1 : 0
+    Animated.sequence([
+      Animated.timing(opacityValue, {
+        toValue: opacity,
+        duration: 200
+      }),
+      Animated.timing(scaleValue, {
+        toValue: scale,
+        duration: 300
+      })
+    ]).start()
+  },[isActive])
+
+  function toggleMenu(){
+    setIsActive(!isActive)
   }
 
   return (
@@ -24,13 +35,35 @@ export default function Playlist({title, icon}){
         <Text style={styles.listTitle}>{title}</Text>
         <Text style={styles.listText}>10 músicas - 45:00</Text>
       </View>
-      <TouchableOpacity style={styles.listOptions} onPress={toggleOptions}>
-        <Feather name="chevron-down" size={15} />
+      <TouchableOpacity style={styles.listOptions} onPress={toggleMenu}>
+        <Feather name="chevron-down" size={16} />
       </TouchableOpacity>
-      <Animated.View 
-        style={[styles.optionContainer,{ transform: [{scaleY: scaleValue}]}]}>
-        <ListOptions />
-      </Animated.View>
+      {/* <TouchableWithoutFeedback 
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0
+        }}
+        onClick={() => setIsActive(false)}
+      > */}
+
+        <Animated.View
+          style={{
+            position: 'absolute',
+            top: -10,
+            right: 10,
+            // width: 120,
+            zIndex: 10,
+            opacity: opacityValue,
+            // transform: [{scale: scaleValue}],
+            display: isActive ? 'flex' : 'none'
+          }}
+          >
+          <ListOptions />
+        </Animated.View>
+      {/* </TouchableWithoutFeedback> */}
     </View>
   )
 }
@@ -52,10 +85,9 @@ const styles = StyleSheet.create({
   listTitle: {
     fontSize: 18
   },
-  optionContainer: {
-    position: 'absolute',
-    right: 2,
-    left: 2,
-    borderRadius: 3
+  listOptions: {
+    backgroundColor: 'gray',
+    width: 25,
+    height: 25
   }
 })
