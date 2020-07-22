@@ -1,32 +1,11 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Feather } from '@expo/vector-icons'
+import { Menu, MenuOptions, MenuOption, MenuTrigger } from 'react-native-popup-menu'
 
-import ListOptions from './ListOptions'
+//import ListOptions from './ListOptions'
 
 export default function Playlist({title, icon}){
-  const [isActive,setIsActive] = React.useState(false)
-  const scaleValue = new Animated.Value(0)
-  const opacityValue = new Animated.Value(0)
-
-  React.useEffect(()=>{
-    let scale = isActive ? 1 : 0
-    let opacity = isActive ? 1 : 0
-    Animated.sequence([
-      Animated.timing(opacityValue, {
-        toValue: opacity,
-        duration: 200
-      }),
-      Animated.timing(scaleValue, {
-        toValue: scale,
-        duration: 300
-      })
-    ]).start()
-  },[isActive])
-
-  function toggleMenu(){
-    setIsActive(!isActive)
-  }
 
   return (
     <View style={styles.list}>
@@ -35,35 +14,20 @@ export default function Playlist({title, icon}){
         <Text style={styles.listTitle}>{title}</Text>
         <Text style={styles.listText}>10 músicas - 45:00</Text>
       </View>
-      <TouchableOpacity style={styles.listOptions} onPress={toggleMenu}>
-        <Feather name="chevron-down" size={16} />
-      </TouchableOpacity>
-      {/* <TouchableWithoutFeedback 
-        style={{
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          top: 0,
-          left: 0
-        }}
-        onClick={() => setIsActive(false)}
-      > */}
-
-        <Animated.View
-          style={{
-            position: 'absolute',
-            top: -10,
-            right: 10,
-            // width: 120,
-            zIndex: 10,
-            opacity: opacityValue,
-            // transform: [{scale: scaleValue}],
-            display: isActive ? 'flex' : 'none'
-          }}
-          >
-          <ListOptions />
-        </Animated.View>
-      {/* </TouchableWithoutFeedback> */}
+      <Menu>
+        <MenuTrigger
+          style={styles.listOptions}
+          children={<Feather name="chevron-down" size={18} />}
+        />
+        <MenuOptions>
+          <MenuOption onSelect={() => alert('Save')} text="aaa" />
+          <MenuOption onSelect={() => alert('Save')} text="aaa" />
+          <MenuOption onSelect={() => alert('Save')} text="aaa" />
+          <MenuOption onSelect={() => alert('Save')} text="aaa" />
+          <MenuOption onSelect={() => alert('Save')} text="aaa" />
+          <MenuOption onSelect={() => alert('Save')} text="aaa" />
+        </MenuOptions>
+      </Menu>
     </View>
   )
 }
@@ -84,10 +48,5 @@ const styles = StyleSheet.create({
   },
   listTitle: {
     fontSize: 18
-  },
-  listOptions: {
-    backgroundColor: 'gray',
-    width: 25,
-    height: 25
   }
 })

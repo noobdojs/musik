@@ -2,6 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons'
+import { MenuProvider } from 'react-native-popup-menu'
 
 import Home from './src/pages/Home'
 import Albuns from './src/pages/Albuns'
@@ -13,6 +14,7 @@ const Tab = createBottomTabNavigator()
 
 export default function App() {
   return (
+    <MenuProvider>
     <NavigationContainer>
       <Tab.Navigator screenOptions={({route}) => ({
         tabBarIcon: ({ color, size }) => {
@@ -44,5 +46,6 @@ export default function App() {
         <Tab.Screen name="Playlists" component={Playlists} />
       </Tab.Navigator>
     </NavigationContainer>
+    </MenuProvider>
   )
 }
