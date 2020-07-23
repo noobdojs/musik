@@ -1,8 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, FlatList, ScrollView, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, Dimensions } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
-export default function CardsAlbum({ tipoLista }){
+interface CardsAlbumProps{
+  listTitle: string
+}
+
+const CardsAlbum: React.FC<CardsAlbumProps> = ({ listTitle }) => {
   let data = [
     {id: 1, artist: 'Blind Guardian', album: 'A Night In The Opera'},
     {id: 2, artist: 'Iron Mask', album: 'Black As Death'},
@@ -13,12 +17,11 @@ export default function CardsAlbum({ tipoLista }){
 
   return (
     <View style={styles.albumCards}>
-      <Text style={styles.albunsTitle}>{tipoLista} albuns</Text>
+      <Text style={styles.albunsTitle}>{listTitle}</Text>
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           pagingEnabled={true}
-          alwaysBounceHorizontal={true}
         >
 
           {data.map(item => (
@@ -44,21 +47,23 @@ export default function CardsAlbum({ tipoLista }){
 const styles = StyleSheet.create({
   albumCards: {
     width: '100%',
-    marginBottom: 5
+    marginBottom: 15,
+    borderRadius: 10
   },
   albunsTitle: {
     fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 5
+    marginVertical: 15
   },
   card: {
-    width: Dimensions.get('window').width - 12,
+    width: Dimensions.get('window').width - 15,
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    marginHorizontal: 1,
+    marginHorizontal: 5,
     borderRadius: 10,
-    paddingBottom: 5
+    paddingBottom: 5,
+    backgroundColor: 'white'
   },
   image: {
     width: '100%',
@@ -90,3 +95,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 })
+
+export default CardsAlbum

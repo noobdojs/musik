@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
-    padding: 5
+    padding: 5,
+    borderRadius: 20
   },
   cardTitle: {
     color: '#fff'
@@ -28,17 +29,18 @@ const styles = StyleSheet.create({
   bgCard: {
     width: '100%',
     height: 120,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    borderRadius: 20
   },
 
   quickOptions:{
     width: '100%',
     height: 90,
-    marginTop: 15,
+    marginVertical: 15,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   }
 })
 

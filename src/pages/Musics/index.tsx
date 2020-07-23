@@ -3,16 +3,16 @@ import { View, Text, ScrollView, SafeAreaView, TouchableHighlight } from 'react-
 import { Feather } from '@expo/vector-icons'
 
 import styles from './styles'
-import Musica from './Musica'
+import Music from './Music'
 
-export default function Musicas() {
+export default function Musics() {
   
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
         <View style={styles.buttonsWrapper}>
           <TouchableHighlight 
-            onPress={() => {}}
+            onPress={() => true}
             style={{borderRadius: 50}}
             underlayColor="darkgray"
           >
@@ -23,7 +23,7 @@ export default function Musicas() {
           </TouchableHighlight>
 
           <TouchableHighlight 
-            onPress={() => {}}
+            onPress={() => true}
             style={{borderRadius: 50}}
             underlayColor="#fff"
           >
@@ -35,9 +35,9 @@ export default function Musicas() {
         </View>
         <View style={{marginTop: 5, width: '100%'}}>
 
-          <Musica />
-          <Musica />
-          <Musica />
+          <Music />
+          <Music />
+          <Music />
         </View>
       </SafeAreaView>
     </ScrollView>

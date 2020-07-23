@@ -1,8 +1,19 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native'
-import { Feather } from '@expo/vector-icons'
+import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
 
-export default function Musica(){
+import {ContextMenu} from '../../components'
+
+export default function Music(){
+  let options = [
+    'Reproduzir a proxima',
+    'Adicionar à lista de reprodução',
+    'Adicionar à fila',
+    'Ir para o álbum',
+    'Ir para o artista',
+    'Compartilhar',
+    'Detalhes'
+  ]
+
   return (
     <TouchableHighlight 
       style={{borderRadius: 5, marginVertical: 5}}
@@ -12,12 +23,12 @@ export default function Musica(){
       <View style={styles.musicContainer}>
         <Image source={{uri: "https://picsum.photos/40/40"}} style={styles.albumImage} />
         <View>
-          <Text stlyle={styles.musicTitle}>Uma musica ai</Text>
+          <Text style={styles.musicTitle}>Uma musica ai</Text>
           <Text style={styles.musicArtist}>um artista ai</Text>
+          </View>
+        <View style={styles.btnOptions}>
+          <ContextMenu handlePress={() => true} options={options} />
         </View>
-        <TouchableOpacity style={styles.btnOptions}>
-          <Feather name="chevron-down" size={15}  />
-        </TouchableOpacity>
       </View>
     </TouchableHighlight>
   )
@@ -44,6 +55,9 @@ const styles = StyleSheet.create({
   musicTitle: {
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  musicArtist: {
+    color: 'grey'
   },
   btnOptions: {
     position: 'absolute',

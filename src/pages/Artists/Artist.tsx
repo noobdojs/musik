@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, ImageBackground, StyleSheet } from 'react-native'
 import Ripple from 'react-native-material-ripple'
 
-export default function Artista(){
+export default function Artist(){
   const artista = "BLIND GUARDIAN".split('')
   return (
     <Ripple

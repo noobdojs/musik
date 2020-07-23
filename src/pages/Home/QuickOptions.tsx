@@ -2,11 +2,18 @@ import React from 'react'
 import { TouchableOpacity, Text,View, StyleSheet } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
-export default function OpcoesRapidas({ iconName, iconColor, option }) {
+interface QuickOptionsProps {
+  iconName: string
+  iconColor: string
+  backgroundColor: string
+  option: string
+}
+
+const QuickOptions: React.FC<QuickOptionsProps> = ({ iconName, iconColor, option, backgroundColor }) => {
   return (
     <TouchableOpacity style={styles.quickOption}>
-      <View style={styles.optionIcon}>
-        <Feather name={iconName} size={32} color={iconColor} />
+    <View style={[styles.optionIcon, {backgroundColor}]}>
+        <Feather name={iconName} size={30} color={iconColor} />
       </View>
       <Text style={styles.optionText}>{option}</Text>
     </TouchableOpacity>
@@ -18,7 +25,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   optionIcon: {
     width: 60,
@@ -27,10 +34,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 3,
-    borderRadius: 100,
-    backgroundColor: '#fff'
+    borderRadius: 35
   },
   optionText: {
-    fontSize: 12
+    fontSize: 12,
+    color: '#6a6a6a'
   }
 })
+
+export default QuickOptions

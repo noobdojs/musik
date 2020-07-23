@@ -1,0 +1,5 @@
+export {default as Home} from './Home'
+export {default as Playlists} from './Playlists'
+export {default as Musics} from './Musics'
+export {default as Artists} from './Artists'
+export {default as Albums} from './Albums'

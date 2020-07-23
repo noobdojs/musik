@@ -1,7 +1,11 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
 
-export default function CardsArtista({ tipoLista }){
+interface CardsArtistProps{
+  listTitle: string
+}
+
+const CardsArtist: React.FC<CardsArtistProps> = ({ listTitle }) => {
   let data = [
     {id: 1, artist: 'Blind Guardian'},
     {id: 2, artist: 'Iron Mask'},
@@ -11,8 +15,9 @@ export default function CardsArtista({ tipoLista }){
   ]
 
   return (
+    
     <View style={styles.artistCards}>
-      <Text style={styles.artistsTitle}>Artistas {tipoLista}</Text>
+      <Text style={styles.artistsTitle}>{listTitle}</Text>
 
       <FlatList
         showsHorizontalScrollIndicator={false}
@@ -35,12 +40,12 @@ export default function CardsArtista({ tipoLista }){
 const styles = StyleSheet.create({
   artistCards: {
     width: '100%',
-    marginBottom: 5
+    marginBottom: 15
   },
   artistsTitle: {
     fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 5
+    marginVertical: 15
   },
   card: {
     width: 120,
@@ -63,3 +68,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   }
 })
+
+export default CardsArtist

@@ -5,8 +5,8 @@ import {
 import { AntDesign } from '@expo/vector-icons'
 
 import styles from './styles'
-import OpcoesRapidas from './OpcoesRapidas'
-import CardsArtista from './CardsArtista'
+import QuickOptions from './QuickOptions'
+import CardsArtist from './CardsArtist'
 import CardsAlbum from './CardsAlbum'
 
 export default function Home(){
@@ -23,16 +23,16 @@ export default function Home(){
         </ImageBackground>
 
         <View style={styles.quickOptions}>
-          <OpcoesRapidas iconName="clock" iconColor="blue" option="Histórico" />
-          <OpcoesRapidas iconName="plus-circle" iconColor="red" option="Mais recentes" />
-          <OpcoesRapidas iconName="activity" iconColor="purple" option="Mais tocadas" />
-          <OpcoesRapidas iconName="shuffle" iconColor="green" option="Aleatório" />
+          <QuickOptions backgroundColor="#cee9fc" iconName="clock" iconColor="#66aee7" option="Histórico" />
+          <QuickOptions backgroundColor="#fcd5d5" iconName="plus-circle" iconColor="#f46758" option="Mais recentes" />
+          <QuickOptions backgroundColor="#e0d1f1" iconName="activity" iconColor="#8562c7" option="Mais tocadas" />
+          <QuickOptions backgroundColor="#d8ebd8" iconName="shuffle" iconColor="#79b97a" option="Aleatório" />
         </View>
 
-        <CardsArtista tipoLista="Principais" />
-        <CardsAlbum tipoLista="Melhores"/>
-        <CardsArtista tipoLista="Recentes" />
-        <CardsAlbum tipoLista="Recentes"/>
+        <CardsArtist listTitle="Principais artistas" />
+        <CardsAlbum listTitle="Melhores albuns"/>
+        <CardsArtist listTitle="Artistas recentes" />
+        <CardsAlbum listTitle="Albuns recentes"/>
 
       </SafeAreaView>
     </ScrollView>

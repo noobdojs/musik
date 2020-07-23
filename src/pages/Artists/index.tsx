@@ -2,19 +2,13 @@ import React from 'react'
 import { ScrollView,View } from 'react-native'
 
 import styles from './styles'
+import Artist from './Artist'
 
-import CardAlbum from './CardAlbum'
-
-export default function Albuns(){
+export default function Artists(){
   return (
     <ScrollView>
       <View style={styles.container}>
-        <CardAlbum />
-        <CardAlbum />
-        <CardAlbum />
-        <CardAlbum />
-        <CardAlbum />
-        <CardAlbum />
+        {[1,2,3,4].map(i => <Artist key={i} />)}
       </View>
     </ScrollView>
   )
