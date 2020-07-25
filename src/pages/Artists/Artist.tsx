@@ -4,6 +4,7 @@ import Ripple from 'react-native-material-ripple'
 
 export default function Artist(){
   const artista = "BLIND GUARDIAN".split('')
+  
   return (
     <Ripple
       rippleColor="#fff"
