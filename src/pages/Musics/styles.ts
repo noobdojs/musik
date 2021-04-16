@@ -3,7 +3,7 @@ import Constants from 'expo-constants'
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+   
     marginTop: 5 + Constants.statusBarHeight,
     alignItems: 'center',
     marginHorizontal: 10
@@ -27,6 +27,23 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     marginLeft: 3
+  },
+
+  permissionRequest: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  permissionTitle: {
+    fontSize: 22
+  },
+  permissionButton: {
+    height: 30,
+    alignItems: 'center',
+    backgroundColor: '#6714ba'
+  },
+  permissionButtonText: {
+    color: '#fff',
+    fontSize: 18
   }
 })
 

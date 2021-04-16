@@ -23,7 +23,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vinicius66.musik"
+    },
+    "android": {
+      "package": "com.vinicius66.musik"
+    },
+    "entryPoint": "index.js"
   }
 }

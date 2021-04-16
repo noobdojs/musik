@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
 
-import {ContextMenu} from '../../components'
+import { ContextMenu } from '../../components'
 
-export default function Music(){
+interface MusicProps{
+  id?: string
+  filename: string
+  duration: number
+}
+
+const Music: React.FC<MusicProps> = ({filename, duration}) => {
+  const [formattedDuration, setFormattedDuration] = useState({ minutes: 0, seconds: 0})
   let options = [
     'Reproduzir a proxima',
     'Adicionar à lista de reprodução',
@@ -14,8 +21,22 @@ export default function Music(){
     'Detalhes'
   ]
 
+  function formatDurationToMinutes(){
+    const minutes = Math.floor(duration / 60)
+    const seconds = Math.floor(duration - (minutes * 60))
+
+    setFormattedDuration({
+      minutes,
+      seconds
+    })
+  }
+
+  React.useEffect(()=> {
+    formatDurationToMinutes()
+  },[])
+
   return (
-    <TouchableHighlight 
+    <TouchableHighlight
       style={{borderRadius: 5, marginVertical: 5}}
       onPress={() => console.log('tapped')}
       underlayColor="gainsboro"
@@ -23,9 +44,13 @@ export default function Music(){
       <View style={styles.musicContainer}>
         <Image source={{uri: "https://picsum.photos/40/40"}} style={styles.albumImage} />
         <View>
-          <Text style={styles.musicTitle}>Uma musica ai</Text>
+          <Text style={styles.musicTitle}>{filename}</Text>
           <Text style={styles.musicArtist}>um artista ai</Text>
-          </View>
+          <Text style={styles.musicDuration}>
+            {`${formattedDuration.minutes}:${formattedDuration.seconds}`}
+          </Text>
+        </View>
+
         <View style={styles.btnOptions}>
           <ContextMenu handlePress={() => true} options={options} />
         </View>
@@ -59,6 +84,9 @@ const styles = StyleSheet.create({
   musicArtist: {
     color: 'grey'
   },
+  musicDuration: {
+    alignSelf: 'flex-end'
+  },
   btnOptions: {
     position: 'absolute',
     right: 0,
@@ -66,3 +94,5 @@ const styles = StyleSheet.create({
     borderRadius: 50
   }
 })
+
+export default Music
